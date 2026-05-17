@@ -7,7 +7,7 @@
 <meta name="description" content="Senior Motion Designer with 10+ years of experience in motion graphics, animation and color correction.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,8 +19,8 @@ html { scroll-behavior: smooth; }
   --mid:   #4a4540;
   --muted: #9a9188;
   --line:  rgba(13,12,10,.13);
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans:  'DM Sans', system-ui, sans-serif;
+  --serif: 'Bebas Neue', sans-serif;
+  --sans:  'Plus Jakarta Sans', system-ui, sans-serif;
   --mono:  'DM Mono', monospace;
 }
 
@@ -96,22 +96,21 @@ nav::after {
   padding: 36px 44px 52px;
 }
 .hero-bio p {
-  font-family: var(--serif);
-  font-size: clamp(19px, 2.8vw, 36px);
-  font-weight: 400;
-  line-height: 1.3;
+  font-family: var(--sans);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 300;
+  line-height: 1.5;
   color: var(--text);
-  letter-spacing: -.01em;
+  letter-spacing: 0;
   max-width: 1080px;
 }
-.hero-bio strong { font-weight:700; }
-.hero-bio em { font-style:italic; }
+.hero-bio strong { font-weight: 500; }
 
 /* Photo + contact row */
 .hero-mid {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  padding: 0 44px;
+  grid-template-columns: 220px 1fr auto;
+  padding: 0 0 0 44px;
   align-items: start;
   gap: 0;
 }
@@ -125,7 +124,7 @@ nav::after {
 
 .photo-col {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: flex-start;
 }
 .photo-wrap { width: clamp(200px, 28vw, 380px); }
@@ -210,10 +209,10 @@ nav::after {
 }
 
 .award-title {
-  font-family: var(--serif);
-  font-size: clamp(20px, 2.8vw, 36px);
-  font-weight: 700;
-  line-height: 1.15;
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
   color: var(--text);
   letter-spacing: -.01em;
   transition: opacity .25s;
@@ -292,14 +291,14 @@ nav::after {
   padding:40px 44px 100px; gap:0; align-items:start;
 }
 .contact-big {
-  font-family:var(--serif); font-weight:900;
+  font-family: var(--serif);
   font-size: clamp(40px,6.5vw,88px);
-  line-height:.92; letter-spacing:-.03em; color:var(--text);
+  line-height:.92; letter-spacing:.02em; color:var(--text);
   margin-bottom:24px;
 }
 .contact-tagline {
-  font-family:var(--serif); font-style:italic;
-  font-size:18px; color:var(--muted); margin-bottom:32px;
+  font-family: var(--sans);
+  font-size:16px; color:var(--muted); margin-bottom:32px;
 }
 
 /* Socials */
@@ -433,7 +432,7 @@ footer {
   </div>
 
   <div class="vgrid">
-    <div class="vcard wide reveal">
+    <div class="vcard reveal">
       <div class="vcard-embed">
         <iframe src="https://player.vimeo.com/video/1174540824?h=7b07fd51c1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -445,13 +444,13 @@ footer {
       </div>
       <div class="vcard-info"></div>
     </div>
-    <div class="vcard reveal d2">
+    <div class="vcard reveal">
       <div class="vcard-embed">
         <iframe src="https://player.vimeo.com/video/407214818?h=4f37c52842&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="vcard-info"></div>
     </div>
-    <div class="vcard wide reveal d1">
+    <div class="vcard reveal d1">
       <div class="vcard-embed">
         <iframe src="https://player.vimeo.com/video/922525130?h=191cdd3c69&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -464,7 +463,7 @@ footer {
       <div class="vcard-info"></div>
     </div>
     <div class="vcard reveal d1" style="display:flex; flex-direction:column; justify-content:center; align-items:center; padding:60px 32px; gap:20px; min-height:200px;">
-      <p style="font-family:var(--serif); font-style:italic; font-size:clamp(16px,2vw,22px); text-align:center; color:var(--mid); line-height:1.4;">More on Behance &amp; Vimeo</p>
+      <p style="font-family:var(--sans); font-size:clamp(14px,1.6vw,18px); text-align:center; color:var(--mid); line-height:1.5; font-weight:300;">More on Behance &amp; Vimeo</p>
       <div style="display:flex; gap:20px;">
         <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Behance ↗</a>
         <a href="https://vimeo.com/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Vimeo ↗</a>
