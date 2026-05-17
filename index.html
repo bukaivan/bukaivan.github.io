@@ -32,22 +32,6 @@ body {
   font-size: 14px;
   line-height: 1.6;
   overflow-x: hidden;
-  cursor: none;
-}
-
-/* ─── CURSOR ─── */
-#cur {
-  position: fixed; pointer-events: none; z-index: 9999;
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--text);
-  transform: translate(-50%,-50%);
-  transition: width .18s, height .18s;
-}
-#cur-r {
-  position: fixed; pointer-events: none; z-index: 9998;
-  width: 30px; height: 30px; border-radius: 50%;
-  border: 1px solid rgba(13,12,10,.3);
-  transform: translate(-50%,-50%);
 }
 
 /* ─── NAV ─── */
@@ -155,13 +139,13 @@ nav::after {
 .giant-name {
   font-family: var(--serif);
   font-weight: 900;
-  font-size: 22.5vw;
   line-height: .86;
   letter-spacing: -.04em;
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
-  padding: 0 36px;
+  display: block;
+  width: 100%;
   margin-top: -12px;
   user-select: none;
   opacity: 0;
@@ -389,9 +373,6 @@ footer {
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-r"></div>
-
 <!-- ─── NAV ─── -->
 <nav>
   <ul class="nav-links">
@@ -565,16 +546,6 @@ footer {
 </footer>
 
 <script>
-/* Cursor */
-const cur=document.getElementById('cur'), ring=document.getElementById('cur-r');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function t(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(t);})();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='13px';cur.style.height='13px';ring.style.width='46px';ring.style.height='46px';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='7px';cur.style.height='7px';ring.style.width='30px';ring.style.height='30px';});
-});
-
 /* Reveal */
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
@@ -594,15 +565,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
 function fitName() {
   const el = document.querySelector('.giant-name');
   if (!el) return;
-  let size = 100;
-  el.style.fontSize = size + 'px';
-  while (el.scrollWidth < window.innerWidth - 72 && size < 600) {
-    size++;
-    el.style.fontSize = size + 'px';
+  el.style.fontSize = '10px';
+  const targetW = document.documentElement.clientWidth;
+  let lo = 10, hi = 2000;
+  while (lo < hi - 1) {
+    const mid = Math.floor((lo + hi) / 2);
+    el.style.fontSize = mid + 'px';
+    if (el.scrollWidth <= targetW) lo = mid;
+    else hi = mid;
   }
-  el.style.fontSize = (size - 1) + 'px';
+  el.style.fontSize = lo + 'px';
 }
-fitName();
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(fitName);
+} else {
+  window.addEventListener('load', fitName);
+}
 window.addEventListener('resize', fitName);
 </script>
 </body>
