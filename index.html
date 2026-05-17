@@ -34,52 +34,8 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── NAV ─── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; justify-content: center; align-items: center;
-  padding: 22px 44px;
-}
-nav::after {
-  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
-  background: linear-gradient(var(--bg) 55%, transparent);
-}
-.nav-links { display:flex; gap:36px; list-style:none; }
-.nav-links a {
-  font-family: var(--mono); font-size: 10px; letter-spacing:.14em;
-  text-transform: uppercase; color: var(--muted);
-  text-decoration: none; transition: color .2s;
-}
-.nav-links a:hover { color: var(--text); }
-
-/* Hamburger */
-.ham { display:none !important; }
-
-@media (max-width: 640px) {
-  nav { padding: 20px 24px; justify-content: center; }
-  .nav-links { display: flex; gap: 28px; }
-  .nav-links a { font-size: 13px; letter-spacing: .14em; color: var(--text); font-weight: 600; }
-}
-.ham span { display:block; width:22px; height:1px; background:var(--text); transition:all .3s; }
-.ham.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
-.ham.open span:nth-child(2) { opacity:0; }
-.ham.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
-.mob-menu {
-  display:none; position:fixed; inset:0; background:var(--bg); z-index:300;
-  flex-direction:column; justify-content:center; padding:0 44px; gap:8px;
-}
-.mob-menu.open { display:flex; }
-.mob-menu a {
-  font-family:var(--serif); font-weight:900;
-  font-size: clamp(44px,12vw,80px);
-  color:var(--text); text-decoration:none; letter-spacing:-.02em;
-  transition: opacity .2s;
-}
-.mob-menu a:hover { opacity:.45; }
-
 /* ─── HERO ─── */
-#hero { padding-top: 96px; }
+#hero { padding-top: 20px; }
 
 .hero-top {
   display: grid;
@@ -97,9 +53,9 @@ nav::after {
 }
 .hero-bio p {
   font-family: var(--sans);
-  font-size: clamp(16px, 2vw, 22px);
+  font-size: clamp(20px, 3.2vw, 42px);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.4;
   color: var(--text);
   letter-spacing: 0;
   max-width: 1080px;
@@ -387,16 +343,7 @@ footer {
 <body>
 
 <!-- ─── NAV ─── -->
-<nav>
-  <ul class="nav-links">
-    <li><a href="#works">Works</a></li>
-    <li><a href="#about">Awards</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="ham" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+
 
 
 
@@ -435,7 +382,7 @@ footer {
   </div>
 
   <!-- GIANT name -->
-  <div class="giant-name">Buka</div>
+  <div class="giant-name">Bukaivan</div>
 </section>
 
 <!-- ─── WORKS ─── -->
@@ -480,7 +427,7 @@ footer {
       <p style="font-family:var(--sans); font-size:clamp(14px,1.6vw,18px); text-align:center; color:var(--mid); line-height:1.5; font-weight:300;">More on Behance &amp; Vimeo</p>
       <div style="display:flex; gap:20px;">
         <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Behance ↗</a>
-        <a href="https://vimeo.com/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Vimeo ↗</a>
+        <a href="https://vimeo.com/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Vimeo ↗</a>
       </div>
     </div>
   </div>
