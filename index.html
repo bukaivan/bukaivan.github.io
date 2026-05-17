@@ -7,7 +7,7 @@
 <meta name="description" content="Senior Motion Designer with 10+ years of experience in motion graphics, animation and color correction.">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -19,7 +19,7 @@ html { scroll-behavior: smooth; }
   --mid:   #4a4540;
   --muted: #9a9188;
   --line:  rgba(13,12,10,.13);
-  --serif: 'Bebas Neue', sans-serif;
+  --serif: 'Cal Sans', sans-serif;
   --sans:  'Plus Jakarta Sans', system-ui, sans-serif;
   --mono:  'DM Mono', monospace;
 }
@@ -56,9 +56,9 @@ nav::after {
 .ham { display:none !important; }
 
 @media (max-width: 640px) {
-  nav { padding: 20px 24px; }
-  .nav-links { display: flex; gap: 20px; }
-  .nav-links a { font-size: 9px; letter-spacing: .12em; }
+  nav { padding: 20px 24px; justify-content: center; }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a { font-size: 13px; letter-spacing: .14em; color: var(--text); font-weight: 600; }
 }
 .ham span { display:block; width:22px; height:1px; background:var(--text); transition:all .3s; }
 .ham.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
@@ -137,15 +137,15 @@ nav::after {
 /* Giant name */
 .giant-name {
   font-family: var(--serif);
-  font-weight: 900;
-  line-height: .86;
-  letter-spacing: -.04em;
+  font-weight: 400;
+  font-size: clamp(80px, 18vw, 260px);
+  line-height: .88;
+  letter-spacing: -.01em;
   color: var(--text);
   white-space: nowrap;
   overflow: hidden;
-  display: block;
-  width: 100%;
-  margin-top: -12px;
+  padding: 0 36px;
+  margin-top: 0;
   user-select: none;
   opacity: 0;
   transform: translateY(28px);
@@ -302,7 +302,7 @@ nav::after {
 }
 
 /* Socials */
-.socials { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+.socials { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; align-items:center; }
 .soc-item {
   width:52px; height:52px; border-radius:50%;
   border:1px solid var(--line); background:transparent;
@@ -311,6 +311,20 @@ nav::after {
   transition:background .25s, border-color .25s, color .25s;
 }
 .soc-item:hover { background:var(--text); border-color:var(--text); color:var(--bg); }
+
+.soc-email {
+  width: auto;
+  border-radius: 99px;
+  padding: 0 20px;
+  gap: 10px;
+  font-size: 20px;
+}
+.soc-email-text {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: inherit;
+}
 
 /* ─── FOOTER ─── */
 footer {
@@ -527,7 +541,10 @@ footer {
       <div class="contact-big">Let's<br>work<br>together</div>
       <p class="contact-tagline">Open for commissions &amp; collaborations</p>
       <div class="socials">
-        <a href="mailto:bukaivan@gmail.com" class="soc-item" aria-label="Email"><i class="ti ti-mail"></i></a>
+        <a href="mailto:bukaivan@gmail.com" class="soc-item soc-email" aria-label="Email">
+          <i class="ti ti-mail"></i>
+          <span class="soc-email-text">bukaivan@gmail.com</span>
+        </a>
         <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" class="soc-item" aria-label="Behance"><i class="ti ti-brand-behance"></i></a>
         <a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener" class="soc-item" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
         <a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener" class="soc-item" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
