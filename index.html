@@ -150,6 +150,7 @@ nav::after {
   flex-shrink: 0;
   width: clamp(160px, 18vw, 280px);
   align-self: flex-end;
+  padding-right: 44px;
 }
 .hero-photo-right img {
   width: 100%;
@@ -309,51 +310,16 @@ nav::after {
   font-size:18px; color:var(--muted); margin-bottom:32px;
 }
 
-/* Email CTA */
-.email-cta {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 10px;
-  font-family: var(--serif);
-  font-size: clamp(16px, 2vw, 24px);
-  font-weight: 400;
-  color: var(--text);
-  text-decoration: none;
-  margin-bottom: 28px;
-  transition: opacity .2s;
+/* Socials */
+.socials { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+.soc-item {
+  width:52px; height:52px; border-radius:50%;
+  border:1px solid var(--line); background:transparent;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; color:var(--text); font-size:20px;
+  transition:background .25s, border-color .25s, color .25s;
 }
-.email-cta:hover { opacity: .5; }
-.email-arr {
-  font-family: var(--sans);
-  font-size: 16px;
-  color: var(--muted);
-  transition: transform .2s, color .2s;
-}
-.email-cta:hover .email-arr { transform: translate(3px,-3px); color: var(--text); }
-
-/* Contact table */
-.contact-table { display: flex; flex-direction: column; }
-.ct-row {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  align-items: baseline;
-  gap: 16px;
-  padding: 13px 0;
-  border-bottom: 1px solid var(--line);
-  text-decoration: none;
-  color: var(--text);
-  transition: padding-left .2s;
-}
-.ct-row:first-child { border-top: 1px solid var(--line); }
-.ct-row:hover { padding-left: 6px; }
-.ct-type {
-  font-family: var(--mono); font-size: 10px;
-  color: var(--muted); letter-spacing: .14em; text-transform: uppercase;
-}
-.ct-val {
-  font-family: var(--sans); font-size: 13px;
-  color: var(--text); font-weight: 300;
-}
+.soc-item:hover { background:var(--text); border-color:var(--text); color:var(--bg); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -551,27 +517,12 @@ footer {
     <div class="reveal">
       <div class="contact-big">Let's<br>work<br>together</div>
       <p class="contact-tagline">Open for commissions &amp; collaborations</p>
-      <a href="mailto:bukaivan@gmail.com" class="email-cta">
-        bukaivan@gmail.com <span class="email-arr">↗</span>
-      </a>
-
-      <div class="contact-table">
-        <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" class="ct-row">
-          <span class="ct-type">Behance</span>
-          <span class="ct-val">bukaivan</span>
-        </a>
-        <a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener" class="ct-row">
-          <span class="ct-type">Instagram</span>
-          <span class="ct-val">@buk1a</span>
-        </a>
-        <a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener" class="ct-row">
-          <span class="ct-type">LinkedIn</span>
-          <span class="ct-val">ivanbukaa</span>
-        </a>
-        <a href="https://dribbble.com/Buka" target="_blank" rel="noopener" class="ct-row">
-          <span class="ct-type">Dribbble</span>
-          <span class="ct-val">Buka</span>
-        </a>
+      <div class="socials">
+        <a href="mailto:bukaivan@gmail.com" class="soc-item" aria-label="Email"><i class="ti ti-mail"></i></a>
+        <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" class="soc-item" aria-label="Behance"><i class="ti ti-brand-behance"></i></a>
+        <a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener" class="soc-item" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener" class="soc-item" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+        <a href="https://dribbble.com/Buka" target="_blank" rel="noopener" class="soc-item" aria-label="Dribbble"><i class="ti ti-brand-dribbble"></i></a>
       </div>
     </div>
 
