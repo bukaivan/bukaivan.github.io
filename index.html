@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivan Buka — Senior Motion Designer</title>
+<meta name="description" content="Senior Motion Designer with 10+ years of experience in motion graphics, animation and color correction.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg:   #ece9e1;
+  --text:  #0d0c0a;
+  --mid:   #4a4540;
+  --muted: #9a9188;
+  --line:  rgba(13,12,10,.13);
+  --serif: 'Cal Sans', sans-serif;
+  --sans:  'Plus Jakarta Sans', system-ui, sans-serif;
+  --mono:  'DM Mono', monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── HERO ─── */
+#hero { padding-top: 20px; }
+
+.hero-top {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  padding: 14px 44px;
+  border-top: 1px solid var(--line);
+  align-items: start;
+  gap: 0;
+}
+.tag { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase; }
+
+/* Bio — big like EX_2 */
+.hero-bio {
+  padding: 36px 44px 52px;
+}
+.hero-bio p {
+  font-family: var(--sans);
+  font-size: clamp(20px, 3.2vw, 42px);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--text);
+  letter-spacing: 0;
+  max-width: 1080px;
+  text-indent: 220px;
+}
+.hero-bio strong { font-weight: 500; }
+.bio-sm { font-weight: 300; }
+
+/* Photo + contact row */
+.hero-mid {
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  padding: 0 0 0 44px;
+  align-items: start;
+  gap: 0;
+}
+.contact-col { padding-top: 2px; }
+.contact-col .tag { display:block; margin-bottom:18px; padding-top:14px; border-top:1px solid var(--line); }
+.cg { display:grid; grid-template-columns:80px 1fr; gap:8px 0; }
+.ct { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
+.cv { font-family:var(--mono); font-size:11px; color:var(--text); }
+.cv a { color:inherit; text-decoration:none; border-bottom:1px solid var(--line); transition:border-color .2s; }
+.cv a:hover { border-color:var(--text); }
+
+.photo-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-right: 44px;
+}
+.photo-wrap { width: clamp(200px, 28vw, 380px); }
+.photo-wrap img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: grayscale(15%);
+}
+
+/* Giant name */
+.giant-name {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(80px, 18vw, 260px);
+  line-height: .88;
+  letter-spacing: -.01em;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 0 36px;
+  margin-top: 0;
+  user-select: none;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: rise 1s cubic-bezier(.16,1,.3,1) .35s forwards;
+}
+
+/* ─── SECTION FRAME ─── */
+.sec-bar {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding: 16px 44px;
+  border-top: 1px solid var(--line);
+  align-items: center;
+}
+.sec-num { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:.12em; }
+
+/* ─── AWARDS ─── */
+#about { padding-bottom: 100px; }
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  padding: 0 44px;
+}
+
+.award-list { display: flex; flex-direction: column; }
+
+.award-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  align-items: start;
+  gap: 32px;
+  padding: 36px 0;
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  color: inherit;
+  transition: background .2s;
+  position: relative;
+}
+.award-item:last-child { border-bottom: 1px solid var(--line); }
+.award-item[href]:hover .award-title { opacity: .5; }
+.award-item[href]:hover .award-arrow { transform: translate(4px,-4px); color: var(--text); }
+
+.award-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .12em;
+  padding-top: 6px;
+}
+
+.award-body { display: flex; flex-direction: column; gap: 10px; }
+
+.award-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding-top: 6px;
+}
+
+.award-title {
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text);
+  letter-spacing: -.01em;
+  transition: opacity .25s;
+}
+
+.award-source {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.award-arrow {
+  font-size: 18px;
+  color: var(--muted);
+  padding-top: 4px;
+  transition: transform .25s, color .25s;
+  flex-shrink: 0;
+}
+
+/* ─── WORKS ─── */
+#works { padding-bottom:100px; }
+.works-sub {
+  display:grid; grid-template-columns:140px 1fr;
+  padding:32px 44px 48px;
+}
+.works-sub p {
+  font-family:var(--serif); font-style:italic;
+  font-size: clamp(16px,2vw,23px);
+  color: var(--mid); line-height:1.5; max-width:520px;
+}
+
+/* Video grid */
+.vgrid {
+  padding: 0 44px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3px;
+}
+.vcard { background: rgba(13,12,10,.06); overflow:hidden; cursor:none; position:relative; }
+.vcard.wide { grid-column: span 2; }
+
+.vcard-embed {
+  position:relative; padding-bottom:56.25%; height:0; overflow:hidden;
+}
+.vcard-embed iframe {
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+  transition: transform .5s cubic-bezier(.16,1,.3,1);
+}
+.vcard-cta:hover { background: rgba(13,12,10,.04); }
+.vcard-cta:hover .vcard-embed iframe { transform: none; }
+
+.vcard-info { display:none; }
+
+/* ─── MODAL ─── */
+.modal-ov {
+  display:none; position:fixed; inset:0; z-index:500;
+  background:rgba(13,12,10,.93); align-items:center; justify-content:center; padding:40px;
+}
+.modal-ov.open { display:flex; }
+.modal-box { width:100%; max-width:960px; position:relative; }
+.modal-cls {
+  position:absolute; top:-42px; right:0;
+  font-family:var(--mono); font-size:10px; color:rgba(236,233,225,.55);
+  letter-spacing:.14em; text-transform:uppercase;
+  background:none; border:none; cursor:none; transition:color .2s;
+}
+.modal-cls:hover { color:var(--bg); }
+.modal-frame { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; }
+.modal-frame iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+/* ─── CONTACT ─── */
+#contact { padding-bottom: 0; }
+.contact-grid {
+  display:grid; grid-template-columns:140px 1fr;
+  padding:40px 44px 100px; gap:0; align-items:start;
+}
+.contact-big {
+  font-family: var(--serif);
+  font-size: clamp(40px,6.5vw,88px);
+  line-height:.92; letter-spacing:.02em; color:var(--text);
+  margin-bottom:24px;
+}
+.contact-tagline {
+  font-family: var(--sans);
+  font-size:16px; color:var(--muted); margin-bottom:32px;
+}
+
+/* Socials */
+.socials { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; align-items:center; }
+.soc-item {
+  width:52px; height:52px; border-radius:50%;
+  border:1px solid var(--line); background:transparent;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none; color:var(--text); font-size:20px;
+  transition:background .25s, border-color .25s, color .25s;
+}
+.soc-item:hover { background:var(--text); border-color:var(--text); color:var(--bg); }
+
+.soc-email {
+  width: auto;
+  border-radius: 99px;
+  padding: 0 20px;
+  gap: 10px;
+  font-size: 20px;
+}
+.soc-email-text {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: inherit;
+}
+
+/* ─── FOOTER ─── */
+footer {
+  border-top:1px solid var(--line);
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 44px;
+  font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:.12em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes rise { to { opacity:1; transform:translateY(0); } }
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s cubic-bezier(.16,1,.3,1); }
+.reveal.in { opacity:1; transform:translateY(0); }
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns:140px 1fr; }
+  .aside { display:none; }
+  .contact-grid { grid-template-columns:140px 1fr; }
+  .form-col { display:none; }
+}
+@media (max-width: 768px) {
+  .hero-mid { grid-template-columns:1fr; }
+  .contact-col { display:none; }
+  .photo-col { justify-content:flex-start; }
+  .giant-name { font-size: clamp(72px, 20vw, 120px); padding-left: 24px; }
+}
+@media (max-width: 640px) {
+  nav { padding:20px 24px; }
+  .nav-links { display:none; }
+  .ham { display:flex; }
+
+  .hero-top, .hero-bio, .hero-mid,
+  .about-grid, .works-sub,
+  .contact-grid { padding-left:24px; padding-right:24px; }
+
+  .sec-bar { padding:14px 24px; }
+  .hero-top { grid-template-columns:80px 1fr; }
+  .hero-bio p { font-size:clamp(17px,5vw,26px); }
+  .hero-mid { grid-template-columns:1fr; }
+  .giant-name { font-size:clamp(76px,22vw,150px); padding-left:18px; }
+
+  .about-grid { grid-template-columns:1fr; gap:0; }
+  .about-grid > :first-child { display:none; }
+  .awards-grid { grid-template-columns:1fr; padding:0 24px; }
+  .award-item { grid-template-columns:80px 1fr auto; gap:16px; padding:28px 0; }
+  .works-sub { grid-template-columns:1fr; }
+  .works-sub > :first-child { display:none; }
+  .vgrid { grid-template-columns:1fr; padding:0 24px; }
+  .vcard.wide { grid-column:span 1; }
+
+  .contact-grid { grid-template-columns:1fr; }
+  .contact-grid > :first-child { display:none; }
+  .socials { grid-template-columns: repeat(3, 1fr); }
+  footer { flex-direction:column; gap:6px; text-align:center; padding:16px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+
+
+
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <!-- Large editorial bio text — exactly like EX_2 -->
+  <div class="hero-bio reveal">
+    <p>
+      <strong>Ivan Buka</strong> <span class="bio-sm">is a Senior</span> <strong>Motion Designer</strong> <span class="bio-sm">with <strong>10+ years of experience</strong> creating dynamic visual content for television, social media and advertising. Specializing in</span> <strong>motion graphics</strong><span class="bio-sm">,</span> <strong>animation</strong> <span class="bio-sm">and professional</span> <strong>color correction</strong><span class="bio-sm">. Passionate about integrating <strong>AI&nbsp;tools</strong> into motion design workflows.</span>
+    </p>
+  </div>
+
+  <!-- Photo + contacts mid row -->
+  <div class="hero-mid">
+    <div class="contact-col reveal">
+      <span class="tag" style="display:block; margin-bottom:18px; padding-top:14px; border-top:1px solid var(--line);">Contact</span>
+      <div class="cg">
+        <span class="ct">Email</span>
+        <span class="cv"><a href="mailto:bukaivan@gmail.com">bukaivan@gmail.com</a></span>
+        <span class="ct">Behance</span>
+        <span class="cv"><a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener">bukaivan</a></span>
+        <span class="ct">Instagram</span>
+        <span class="cv"><a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener">@buk1a</a></span>
+        <span class="ct">LinkedIn</span>
+        <span class="cv"><a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener">ivanbukaa</a></span>
+        <span class="ct">Dribbble</span>
+        <span class="cv"><a href="https://dribbble.com/Buka" target="_blank" rel="noopener">Buka</a></span>
+      </div>
+    </div>
+
+    <div class="photo-col reveal d1">
+      <div class="photo-wrap">
+        <img src="My_foto.jpg" alt="Ivan Buka" loading="eager">
+      </div>
+    </div>
+  </div>
+
+  <!-- GIANT name -->
+  <div class="giant-name">Bukaivan</div>
+</section>
+
+<!-- ─── WORKS ─── -->
+<section id="works">
+  <div class="sec-bar">
+    <span class="tag">Works</span>
+    <span class="sec-num">01 / 03</span>
+  </div>
+
+  <div class="vgrid">
+    <div class="vcard reveal">
+      <div class="vcard-embed">
+        <iframe src="https://player.vimeo.com/video/1174540824?h=7b07fd51c1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vcard-info"></div>
+    </div>
+    <div class="vcard reveal d1">
+      <div class="vcard-embed">
+        <iframe src="https://player.vimeo.com/video/570033242?h=77754feccf&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vcard-info"></div>
+    </div>
+    <div class="vcard reveal">
+      <div class="vcard-embed">
+        <iframe src="https://player.vimeo.com/video/407214818?h=4f37c52842&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vcard-info"></div>
+    </div>
+    <div class="vcard reveal d1">
+      <div class="vcard-embed">
+        <iframe src="https://player.vimeo.com/video/922525130?h=191cdd3c69&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vcard-info"></div>
+    </div>
+    <div class="vcard reveal">
+      <div class="vcard-embed">
+        <iframe src="https://player.vimeo.com/video/586350391?h=d8d7fe793d&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="vcard-info"></div>
+    </div>
+    <div class="vcard vcard-cta reveal d1" style="display:flex; flex-direction:column; justify-content:center; align-items:center; padding:60px 32px; gap:20px; min-height:200px;">
+      <p style="font-family:var(--sans); font-size:clamp(14px,1.6vw,18px); text-align:center; color:var(--mid); line-height:1.5; font-weight:300;">More on Behance &amp; Vimeo</p>
+      <div style="display:flex; gap:20px;">
+        <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Behance ↗</a>
+        <a href="https://vimeo.com/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Vimeo ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ABOUT ─── -->
+<section id="about">
+  <div class="sec-bar">
+    <span class="tag">Awards</span>
+    <span class="sec-num">02 / 03</span>
+  </div>
+
+  <div class="awards-grid">
+    <div></div>
+    <div class="award-list">
+
+      <a class="award-item reveal" href="https://www.printmag.com/daily-heller/the-daily-heller-give-my-avant-gardes-to-broadway/" target="_blank" rel="noopener">
+        <span class="award-date">July 2025</span>
+        <div class="award-body">
+          <div class="award-title">The Daily Heller: Give My Avant Regards to Broadway</div>
+          <span class="award-source">PRINT Magazine</span>
+        </div>
+        <span class="award-arrow">↗</span>
+      </a>
+
+      <a class="award-item reveal d1" href="https://fontsinuse.com/uses/70072/5th-anniversary-of-the-bankov-poster-school-i" target="_blank" rel="noopener">
+        <span class="award-date">June 2025</span>
+        <div class="award-body">
+          <div class="award-title">5th Anniversary of the Bankov Poster School in Times Square</div>
+          <span class="award-source">Fonts In Use</span>
+        </div>
+        <span class="award-arrow">↗</span>
+      </a>
+
+      <a class="award-item reveal d2" href="https://timecodeakcjaanimacja.pl/previous-editions/" target="_blank" rel="noopener">
+        <span class="award-date">October 2018</span>
+        <div class="award-body">
+          <div class="award-title">Honorable Mention — Timecode Action Animation Contest</div>
+          <span class="award-source">Timecode Contest</span>
+        </div>
+        <span class="award-arrow">↗</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact">
+  <div class="sec-bar">
+    <span class="tag">Contact</span>
+    <span class="sec-num">03 / 03</span>
+  </div>
+
+  <div class="contact-grid">
+    <div></div>
+
+    <div class="reveal">
+      <div class="contact-big">Let's<br>work<br>together</div>
+      <p class="contact-tagline">Open for commissions &amp; collaborations</p>
+      <div class="socials">
+        <a href="mailto:bukaivan@gmail.com" class="soc-item soc-email" aria-label="Email">
+          <i class="ti ti-mail"></i>
+          <span class="soc-email-text">bukaivan@gmail.com</span>
+        </a>
+        <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" class="soc-item" aria-label="Behance"><i class="ti ti-brand-behance"></i></a>
+        <a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener" class="soc-item" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener" class="soc-item" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+        <a href="https://dribbble.com/Buka" target="_blank" rel="noopener" class="soc-item" aria-label="Dribbble"><i class="ti ti-brand-dribbble"></i></a>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<footer>
+  <span>Ivan Buka — Senior Motion Designer</span>
+  <span>© 2025</span>
+</footer>
+
+<script>
+/* Reveal */
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* Form */
+function doForm(e){
+  e.preventDefault();
+  const b=document.getElementById('fBtn');
+  b.style.opacity='.4';b.disabled=true;
+  setTimeout(()=>{document.getElementById('cForm').reset();b.style.opacity='1';b.disabled=false;const ok=document.getElementById('fOk');ok.style.display='block';setTimeout(()=>ok.style.display='none',5000);},900);
+}
+
+/* Smooth scroll */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-70,behavior:'smooth'});}}));
+
+/* Fit giant name to full width */
+function fitName() {
+  const el = document.querySelector('.giant-name');
+  if (!el) return;
+  el.style.fontSize = '10px';
+  const targetW = document.documentElement.clientWidth;
+  let lo = 10, hi = 2000;
+  while (lo < hi - 1) {
+    const mid = Math.floor((lo + hi) / 2);
+    el.style.fontSize = mid + 'px';
+    if (el.scrollWidth <= targetW) lo = mid;
+    else hi = mid;
+  }
+  el.style.fontSize = lo + 'px';
+}
+
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(fitName);
+} else {
+  window.addEventListener('load', fitName);
+}
+window.addEventListener('resize', fitName);
+</script>
+</body>
+</html>
