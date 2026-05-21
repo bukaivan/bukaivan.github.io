@@ -39,25 +39,44 @@ nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; justify-content: center; align-items: center;
   padding: 10px 44px;
+  pointer-events: none;
 }
-nav::after {
-  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
-  background: linear-gradient(var(--bg) 60%, transparent);
+.nav-pill {
+  display: flex; gap: 0; list-style: none;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  padding: 8px 24px;
+  gap: 32px;
+  pointer-events: all;
+  transition: border-color .3s ease, background .3s ease;
+}
+.nav-pill.scrolled {
+  border-color: var(--line);
+  background: rgba(236,233,225,.85);
+  backdrop-filter: blur(8px);
 }
 .nav-links { display:flex; gap:40px; list-style:none; }
-.nav-links a {
+.nav-pill a {
   font-family: var(--mono); font-size: 10px; letter-spacing:.16em;
   text-transform: uppercase; color: var(--muted);
   text-decoration: none; transition: color .2s;
 }
-.nav-links a:hover { color: var(--text); }
+.nav-pill a:hover { color: var(--text); }
 
 /* Hamburger */
 .ham {
   display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer;
-  position: fixed; top: 18px; right: 24px; z-index: 310;
-  padding: 4px;
+  background: transparent; border: 1px solid transparent;
+  cursor: pointer;
+  position: fixed; top: 10px; right: 24px; z-index: 310;
+  padding: 8px 12px;
+  border-radius: 99px;
+  transition: border-color .3s, background .3s;
+}
+.ham.scrolled {
+  border-color: var(--line);
+  background: rgba(236,233,225,.85);
+  backdrop-filter: blur(8px);
 }
 .ham span { display:block; width:22px; height:1px; background:var(--text); transition:all .3s; }
 .ham.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
@@ -360,8 +379,8 @@ footer {
   .giant-name { font-size: clamp(72px, 20vw, 120px); padding-left: 24px; }
 }
 @media (max-width: 640px) {
-  nav { padding: 16px 24px; }
-  .nav-links { display: none; }
+  nav { padding: 10px 24px; }
+  .nav-pill { display: none; }
   .ham { display: flex; }
   nav { padding:20px 24px; }
   .nav-links { display:none; }
@@ -401,7 +420,7 @@ footer {
 
 
 <nav>
-  <ul class="nav-links">
+  <ul class="nav-pill" id="navPill">
     <li><a href="#works">Works</a></li>
     <li><a href="#about">Awards</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -581,6 +600,19 @@ footer {
 </footer>
 
 <script>
+/* Nav pill on scroll */
+const navPill = document.getElementById('navPill');
+const hamBtn = document.getElementById('ham');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 40) {
+    navPill.classList.add('scrolled');
+    hamBtn.classList.add('scrolled');
+  } else {
+    navPill.classList.remove('scrolled');
+    hamBtn.classList.remove('scrolled');
+  }
+});
+
 /* Hamburger */
 const ham=document.getElementById('ham'), mob=document.getElementById('mobMenu');
 ham.addEventListener('click',()=>{ ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow=mob.classList.contains('open')?'hidden':''; });
