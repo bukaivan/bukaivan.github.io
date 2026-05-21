@@ -34,8 +34,51 @@ body {
   overflow-x: hidden;
 }
 
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: center; align-items: center;
+  padding: 10px 44px;
+}
+nav::after {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background: linear-gradient(var(--bg) 60%, transparent);
+}
+.nav-links { display:flex; gap:40px; list-style:none; }
+.nav-links a {
+  font-family: var(--mono); font-size: 10px; letter-spacing:.16em;
+  text-transform: uppercase; color: var(--muted);
+  text-decoration: none; transition: color .2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+/* Hamburger */
+.ham {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer;
+  position: fixed; top: 18px; right: 24px; z-index: 310;
+  padding: 4px;
+}
+.ham span { display:block; width:22px; height:1px; background:var(--text); transition:all .3s; }
+.ham.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.ham.open span:nth-child(2) { opacity:0; }
+.ham.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.mob-menu {
+  display:none; position:fixed; inset:0; background:var(--bg); z-index:300;
+  flex-direction:column; justify-content:center; padding:0 44px; gap:12px;
+}
+.mob-menu.open { display:flex; }
+.mob-menu a {
+  font-family: var(--serif);
+  font-size: clamp(44px,12vw,80px);
+  color:var(--text); text-decoration:none; letter-spacing:.02em;
+  transition: opacity .2s;
+}
+.mob-menu a:hover { opacity:.45; }
+
 /* ─── HERO ─── */
-#hero { padding-top: 20px; }
+#hero { padding-top: 12px; }
 
 .hero-top {
   display: grid;
@@ -58,7 +101,7 @@ body {
   line-height: 1.4;
   color: var(--text);
   letter-spacing: 0;
-  text-indent: 220px;
+  text-indent: 1cm;
 }
 .hero-bio strong { font-weight: 500; }
 .bio-sm { font-weight: 300; }
@@ -317,6 +360,9 @@ footer {
   .giant-name { font-size: clamp(72px, 20vw, 120px); padding-left: 24px; }
 }
 @media (max-width: 640px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .ham { display: flex; }
   nav { padding:20px 24px; }
   .nav-links { display:none; }
   .ham { display:flex; }
@@ -353,6 +399,24 @@ footer {
 
 
 
+
+<nav>
+  <ul class="nav-links">
+    <li><a href="#works">Works</a></li>
+    <li><a href="#about">Awards</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<button class="ham" id="ham" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="#works" class="mob-link">Works</a>
+  <a href="#about" class="mob-link">Awards</a>
+  <a href="#contact" class="mob-link">Contact</a>
+</div>
 
 <!-- ─── HERO ─── -->
 <section id="hero">
@@ -517,6 +581,11 @@ footer {
 </footer>
 
 <script>
+/* Hamburger */
+const ham=document.getElementById('ham'), mob=document.getElementById('mobMenu');
+ham.addEventListener('click',()=>{ ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow=mob.classList.contains('open')?'hidden':''; });
+document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>{ ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow=''; }));
+
 /* Reveal */
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -28px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
