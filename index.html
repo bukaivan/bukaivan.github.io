@@ -141,16 +141,16 @@ nav {
 /* Photo + contact row */
 .hero-mid {
   display: grid;
-  grid-template-columns: 220px 1fr auto;
+  grid-template-columns: 280px 1fr auto;
   padding: 0 0 0 44px;
   align-items: start;
   gap: 0;
 }
 .contact-col { padding-top: 2px; }
 .contact-col .tag { display:block; margin-bottom:18px; padding-top:14px; border-top:1px solid var(--line); }
-.cg { display:grid; grid-template-columns:80px 1fr; gap:8px 0; }
-.ct { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
-.cv { font-family:var(--mono); font-size:11px; color:var(--text); }
+.cg { display:grid; grid-template-columns:90px 1fr; gap:10px 0; }
+.ct { font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
+.cv { font-family:var(--mono); font-size:12px; color:var(--text); }
 .cv a { color:inherit; text-decoration:none; border-bottom:1px solid var(--line); transition:border-color .2s; }
 .cv a:hover { border-color:var(--text); }
 
@@ -160,7 +160,7 @@ nav {
   align-items: flex-start;
   padding-right: 44px;
 }
-.photo-wrap { width: clamp(200px, 28vw, 380px); }
+.photo-wrap { width: clamp(240px, 36vw, 520px); }
 .photo-wrap img {
   width: 100%;
   height: auto;
@@ -238,16 +238,16 @@ nav {
 
 .award-date {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
   letter-spacing: .14em;
   text-transform: uppercase;
-  padding-top: 6px;
+  padding-top: 8px;
 }
 
 .award-title {
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: clamp(14px, 1.4vw, 18px);
   font-weight: 300;
   line-height: 1.4;
   color: var(--muted);
@@ -257,7 +257,7 @@ nav {
 
 .award-source {
   font-family: var(--sans);
-  font-size: clamp(18px, 2.2vw, 28px);
+  font-size: clamp(22px, 2.8vw, 36px);
   font-weight: 500;
   color: var(--text);
   letter-spacing: -.01em;
@@ -331,13 +331,13 @@ nav {
 }
 .contact-big {
   font-family: var(--serif);
-  font-size: clamp(40px,6.5vw,88px);
-  line-height:.92; letter-spacing:.02em; color:var(--text);
+  font-size: clamp(48px, 8vw, 110px);
+  line-height:.88; letter-spacing:.02em; color:var(--text);
   margin-bottom:24px;
 }
 .contact-tagline {
   font-family: var(--sans);
-  font-size:16px; color:var(--muted); margin-bottom:32px;
+  font-size: clamp(16px, 1.5vw, 20px); color:var(--muted); margin-bottom:32px;
 }
 
 /* Socials */
