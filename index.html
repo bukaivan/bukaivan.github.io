@@ -124,6 +124,19 @@ nav {
 }
 .hero-bio strong { font-weight: 500; }
 .bio-sm { font-weight: 300; }
+.bio-tools {
+  font-family: var(--sans);
+  font-size: clamp(12px, 1.2vw, 15px);
+  font-weight: 300;
+  color: var(--muted);
+  margin-top: 20px;
+  text-indent: 0;
+  line-height: 1.6;
+}
+.bio-tools strong {
+  font-weight: 500;
+  color: var(--text);
+}
 
 /* Photo + contact row */
 .hero-mid {
@@ -234,20 +247,21 @@ nav {
 
 .award-title {
   font-family: var(--sans);
-  font-size: clamp(18px, 2.2vw, 28px);
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--text);
-  letter-spacing: -.01em;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--muted);
+  letter-spacing: 0;
   transition: opacity .25s;
 }
 
 .award-source {
-  font-family: var(--mono);
-  font-size: 10px;
-  color: var(--muted);
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.2vw, 28px);
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: -.01em;
+  line-height: 1.1;
 }
 
 .award-arrow {
@@ -444,6 +458,9 @@ footer {
     <p>
       <strong>Ivan Buka</strong> <span class="bio-sm">is a Senior</span> <strong>Motion Designer</strong> <span class="bio-sm">with <strong>10+ years of experience</strong> creating dynamic visual content for television, social media and advertising. Specializing in</span> <strong>motion graphics</strong><span class="bio-sm">,</span> <strong>animation</strong> <span class="bio-sm">and professional</span> <strong>color correction</strong><span class="bio-sm">. Passionate about integrating <strong>AI&nbsp;tools</strong> into motion design workflows.</span>
     </p>
+    <p class="bio-tools">
+      <strong>Tools of choice:</strong> Cinema 4D, Unreal Engine, After Effects, Illustrator, Photoshop, Figma and AI-powered generative tools.
+    </p>
   </div>
 
   <!-- Photo + contacts mid row -->
@@ -479,7 +496,7 @@ footer {
 <section id="works">
   <div class="sec-bar">
     <span class="tag">Works</span>
-    <span class="sec-num">01 / 03</span>
+    <span></span>
   </div>
 
   <div class="vgrid">
@@ -527,7 +544,7 @@ footer {
 <section id="about">
   <div class="sec-bar">
     <span class="tag">Awards</span>
-    <span class="sec-num">02 / 03</span>
+    <span></span>
   </div>
 
   <div class="awards-grid">
@@ -569,7 +586,7 @@ footer {
 <section id="contact">
   <div class="sec-bar">
     <span class="tag">Contact</span>
-    <span class="sec-num">03 / 03</span>
+    <span></span>
   </div>
 
   <div class="contact-grid">
