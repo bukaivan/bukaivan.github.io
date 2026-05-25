@@ -341,7 +341,25 @@ nav {
 }
 
 /* Socials */
-.socials { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; align-items:center; }
+.socials-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+
+.soc-email-row {
+  display: inline-flex; align-items: center; gap: 10px;
+  height: 52px; border-radius: 99px;
+  border: 1px solid var(--line); background: transparent;
+  padding: 0 20px;
+  text-decoration: none; color: var(--text); font-size: 20px;
+  transition: background .25s, border-color .25s, color .25s;
+  align-self: flex-start;
+}
+.soc-email-row:hover { background: var(--text); border-color: var(--text); color: var(--bg); }
+
+.soc-email-text {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em; color: inherit;
+}
+
+.socials-icons { display: flex; gap: 10px; }
+
 .soc-item {
   width:52px; height:52px; border-radius:50%;
   border:1px solid var(--line); background:transparent;
@@ -350,20 +368,6 @@ nav {
   transition:background .25s, border-color .25s, color .25s;
 }
 .soc-item:hover { background:var(--text); border-color:var(--text); color:var(--bg); }
-
-.soc-email {
-  width: auto;
-  border-radius: 99px;
-  padding: 0 20px;
-  gap: 10px;
-  font-size: 20px;
-}
-.soc-email-text {
-  font-family: var(--mono);
-  font-size: 12px;
-  letter-spacing: .04em;
-  color: inherit;
-}
 
 /* ─── FOOTER ─── */
 footer {
@@ -595,15 +599,17 @@ footer {
     <div class="reveal">
       <div class="contact-big">Let's<br>work<br>together</div>
       <p class="contact-tagline">Open for commissions &amp; collaborations</p>
-      <div class="socials">
-        <a href="mailto:bukaivan@gmail.com" class="soc-item soc-email" aria-label="Email">
+      <div class="socials-wrap">
+        <a href="mailto:bukaivan@gmail.com" class="soc-email-row" aria-label="Email">
           <i class="ti ti-mail"></i>
           <span class="soc-email-text">bukaivan@gmail.com</span>
         </a>
-        <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" class="soc-item" aria-label="Behance"><i class="ti ti-brand-behance"></i></a>
-        <a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener" class="soc-item" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener" class="soc-item" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
-        <a href="https://dribbble.com/Buka" target="_blank" rel="noopener" class="soc-item" aria-label="Dribbble"><i class="ti ti-brand-dribbble"></i></a>
+        <div class="socials-icons">
+          <a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener" class="soc-item" aria-label="Behance"><i class="ti ti-brand-behance"></i></a>
+          <a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener" class="soc-item" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener" class="soc-item" aria-label="LinkedIn"><i class="ti ti-brand-linkedin"></i></a>
+          <a href="https://dribbble.com/Buka" target="_blank" rel="noopener" class="soc-item" aria-label="Dribbble"><i class="ti ti-brand-dribbble"></i></a>
+        </div>
       </div>
     </div>
 
