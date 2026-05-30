@@ -137,22 +137,14 @@ nav {
   font-weight: 500;
 }
 
-/* Photo + contact row */
+/* Photo + bio row */
 .hero-mid {
   display: grid;
-  grid-template-columns: 1fr 280px;
-  padding: 0 44px 0 44px;
+  grid-template-columns: auto 1fr;
+  padding: 0 44px;
   align-items: start;
-  gap: 0;
+  gap: 48px;
 }
-.contact-col { padding-top: 2px; padding-left: 40px; }
-.contact-col .tag { display:block; margin-bottom:18px; padding-top:14px; border-top:1px solid var(--line); }
-.cg { display:grid; grid-template-columns:90px 1fr; gap:10px 0; }
-.ct { font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
-.cv { font-family:var(--mono); font-size:12px; color:var(--text); }
-.cv a { color:inherit; text-decoration:none; border-bottom:1px solid var(--line); transition:border-color .2s; }
-.cv a:hover { border-color:var(--text); }
-
 .photo-col {
   display: flex;
   justify-content: flex-start;
@@ -168,6 +160,19 @@ nav {
   display: block;
   filter: grayscale(15%);
 }
+.hero-bio-side {
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.hero-bio-side p {
+  font-family: var(--sans);
+  font-size: clamp(18px, 2.4vw, 32px);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--text);
+  letter-spacing: 0;
+}
+.hero-bio-side strong { font-weight: 500; }
 
 /* Giant name */
 .giant-name {
@@ -455,14 +460,8 @@ footer {
 
 <!-- ─── HERO ─── -->
 <section id="hero">
-  <!-- Large editorial bio text — exactly like EX_2 -->
-  <div class="hero-bio reveal">
-    <p>
-      <strong>Ivan Buka</strong> <span class="bio-sm">is a Senior</span> <strong>Motion Designer</strong> <span class="bio-sm">with <strong>10+ years of experience</strong> creating dynamic visual content for television, social media and advertising. Specializing in</span> <strong>motion graphics</strong><span class="bio-sm">,</span> <strong>animation</strong> <span class="bio-sm">and professional</span> <strong>color correction</strong><span class="bio-sm">. Passionate about integrating <strong>AI&nbsp;tools</strong> into motion design workflows.</span>
-    </p>
-  </div>
 
-  <!-- Photo + contacts mid row -->
+  <!-- Photo + bio mid row -->
   <div class="hero-mid">
     <div class="photo-col reveal">
       <div class="photo-wrap">
@@ -470,20 +469,10 @@ footer {
       </div>
     </div>
 
-    <div class="contact-col reveal d1">
-      <span class="tag" style="display:block; margin-bottom:18px; padding-top:14px; border-top:1px solid var(--line);">Contact</span>
-      <div class="cg">
-        <span class="ct">Email</span>
-        <span class="cv"><a href="mailto:bukaivan@gmail.com">bukaivan@gmail.com</a></span>
-        <span class="ct">Behance</span>
-        <span class="cv"><a href="https://www.behance.net/bukaivan" target="_blank" rel="noopener">bukaivan</a></span>
-        <span class="ct">Instagram</span>
-        <span class="cv"><a href="https://www.instagram.com/buk1a" target="_blank" rel="noopener">@buk1a</a></span>
-        <span class="ct">LinkedIn</span>
-        <span class="cv"><a href="https://www.linkedin.com/in/ivanbukaa/" target="_blank" rel="noopener">ivanbukaa</a></span>
-        <span class="ct">Dribbble</span>
-        <span class="cv"><a href="https://dribbble.com/Buka" target="_blank" rel="noopener">Buka</a></span>
-      </div>
+    <div class="hero-bio-side reveal d1">
+      <p>
+        <strong>Ivan Buka</strong> <span class="bio-sm">is a Senior</span> <strong>Motion Designer</strong> <span class="bio-sm">with <strong>10+ years of experience</strong> creating dynamic visual content for television, social media and advertising. Specializing in</span> <strong>motion graphics</strong><span class="bio-sm">,</span> <strong>animation</strong> <span class="bio-sm">and professional</span> <strong>color correction</strong><span class="bio-sm">. Passionate about integrating <strong>AI&nbsp;tools</strong> into motion design workflows.</span>
+      </p>
     </div>
   </div>
 
