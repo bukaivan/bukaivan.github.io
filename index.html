@@ -111,7 +111,11 @@ nav {
 
 /* Bio — big like EX_2 */
 .hero-bio {
-  padding: 36px 44px 52px;
+  padding: 36px 44px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 .hero-bio p {
   font-family: var(--sans);
@@ -135,20 +139,38 @@ nav {
 }
 .bio-tools strong { font-weight: 500; }
 
+.tools-box {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(13,12,10,.06);
+  border-left: 2px solid rgba(13,12,10,.15);
+  font-family: var(--sans);
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--mid);
+}
+.tools-box strong { font-weight: 500; color: var(--text); }
+
 /* Photo + bio row */
 .hero-mid {
   display: grid;
-  grid-template-columns: auto 1fr;
-  padding: 0 44px;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
   align-items: start;
-  gap: 48px;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
 }
 .photo-col {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  padding: 40px 0 40px 44px;
 }
-.photo-wrap { width: clamp(200px, 28vw, 420px); }
+.photo-wrap { width: 70%; }
 .photo-wrap img {
   width: 100%;
   height: auto;
@@ -159,14 +181,15 @@ nav {
   filter: grayscale(15%);
 }
 .hero-bio-side {
-  padding-top: 14px;
+  padding: 40px 44px 40px 0;
   border-top: 1px solid var(--line);
+  margin-left: -24px;
 }
 .hero-bio-side p {
   font-family: var(--sans);
-  font-size: clamp(15px, 1.6vw, 20px);
+  font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.7;
   color: var(--text);
   letter-spacing: 0;
 }
@@ -197,6 +220,8 @@ nav {
   padding: 16px 44px;
   border-top: 1px solid var(--line);
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .sec-num { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:.12em; }
 
@@ -207,6 +232,8 @@ nav {
   display: grid;
   grid-template-columns: 140px 1fr;
   padding: 0 44px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .award-list { display: flex; flex-direction: column; }
@@ -248,9 +275,9 @@ nav {
 
 .award-title {
   font-family: var(--sans);
-  font-size: clamp(14px, 1.4vw, 18px);
+  font-size: clamp(13px, 1.2vw, 16px);
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--muted);
   letter-spacing: 0;
   transition: opacity .25s;
@@ -258,11 +285,11 @@ nav {
 
 .award-source {
   font-family: var(--sans);
-  font-size: clamp(22px, 2.8vw, 36px);
+  font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 500;
   color: var(--text);
-  letter-spacing: -.01em;
-  line-height: 1.1;
+  letter-spacing: 0;
+  line-height: 1.3;
 }
 
 .award-arrow {
@@ -275,6 +302,7 @@ nav {
 
 /* ─── WORKS ─── */
 #works { padding-bottom:100px; }
+.works-inner { max-width:1200px; margin:0 auto; }
 .works-sub {
   display:grid; grid-template-columns:140px 1fr;
   padding:32px 44px 48px;
@@ -329,16 +357,17 @@ nav {
 .contact-grid {
   display:grid; grid-template-columns:140px 1fr;
   padding:40px 44px 100px; gap:0; align-items:start;
+  max-width:1200px; margin:0 auto;
 }
 .contact-big {
   font-family: var(--serif);
-  font-size: clamp(48px, 8vw, 110px);
-  line-height:.88; letter-spacing:.02em; color:var(--text);
-  margin-bottom:24px;
+  font-size: clamp(32px, 5vw, 64px);
+  line-height:.92; letter-spacing:.02em; color:var(--text);
+  margin-bottom:20px;
 }
 .contact-tagline {
   font-family: var(--sans);
-  font-size: clamp(16px, 1.5vw, 20px); color:var(--muted); margin-bottom:32px;
+  font-size: clamp(13px, 1.2vw, 16px); color:var(--muted); margin-bottom:28px;
 }
 
 /* Socials */
@@ -469,14 +498,13 @@ footer {
 
     <div class="hero-bio-side reveal d1">
       <p>
-        <strong>Ivan Buka</strong> <span class="bio-sm">is a Senior</span> <strong>Motion Designer</strong> <span class="bio-sm">with <strong>10+ years of experience</strong> creating dynamic visual content for television, social media and advertising. Specializing in</span> <strong>motion graphics</strong><span class="bio-sm">,</span> <strong>animation</strong> <span class="bio-sm">and professional</span> <strong>color correction</strong><span class="bio-sm">. Passionate about integrating <strong>AI&nbsp;tools</strong> into motion design workflows.</span>
+        <strong>Ivan Buka</strong> <span class="bio-sm">is a Senior</span> <strong>Motion Designer</strong> <span class="bio-sm">with <strong>10+ years of experience</strong> creating dynamic visual content for television, social media and advertising. Specializing in</span> <strong>motion graphics</strong><span class="bio-sm"> and</span> <strong>animation</strong><span class="bio-sm">. Award-winning work featured in PRINT Magazine and displayed in Times Square, New York. Open to remote freelance and full-time opportunities worldwide.</span>
       </p>
+      <div class="tools-box">
+        <strong>Tools of choice:</strong> Cinema 4D, Unreal Engine, After Effects, Illustrator, Photoshop, Figma and AI-powered generative tools.
+      </div>
     </div>
   </div>
-
-  <p class="bio-tools reveal" style="padding: 24px 44px 0;">
-    <strong>Tools of choice:</strong> Cinema 4D, Unreal Engine, After Effects, Illustrator, Photoshop, Figma and AI-powered generative tools.
-  </p>
 
   <!-- GIANT name -->
 
@@ -488,7 +516,7 @@ footer {
     <span class="tag">Works</span>
     <span></span>
   </div>
-
+  <div class="works-inner">
   <div class="vgrid">
     <div class="vcard reveal">
       <div class="vcard-embed">
@@ -527,6 +555,7 @@ footer {
         <a href="https://vimeo.com/bukaivan" target="_blank" rel="noopener" style="font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--text); border-bottom:1px solid var(--line); padding-bottom:2px; text-decoration:none;">Vimeo ↗</a>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
