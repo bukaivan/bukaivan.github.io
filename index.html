@@ -14,7 +14,7 @@
 html { scroll-behavior: smooth; }
 
 :root {
-  --bg:   #ece9e1;
+  --bg:   #ffffff;
   --text:  #0d0c0a;
   --mid:   #4a4540;
   --muted: #9a9188;
@@ -126,27 +126,26 @@ nav {
 .bio-sm { font-weight: 300; }
 .bio-tools {
   font-family: var(--sans);
-  font-size: clamp(12px, 1.2vw, 15px);
+  font-size: clamp(18px, 2.4vw, 32px);
   font-weight: 300;
-  color: var(--muted);
-  margin-top: 20px;
+  line-height: 1.4;
+  color: var(--text);
+  letter-spacing: 0;
   text-indent: 0;
-  line-height: 1.6;
 }
 .bio-tools strong {
   font-weight: 500;
-  color: var(--text);
 }
 
 /* Photo + contact row */
 .hero-mid {
   display: grid;
-  grid-template-columns: 280px 1fr auto;
-  padding: 0 0 0 44px;
+  grid-template-columns: 1fr 280px;
+  padding: 0 44px 0 44px;
   align-items: start;
   gap: 0;
 }
-.contact-col { padding-top: 2px; }
+.contact-col { padding-top: 2px; padding-left: 40px; }
 .contact-col .tag { display:block; margin-bottom:18px; padding-top:14px; border-top:1px solid var(--line); }
 .cg { display:grid; grid-template-columns:90px 1fr; gap:10px 0; }
 .ct { font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.1em; text-transform:uppercase; }
@@ -156,9 +155,8 @@ nav {
 
 .photo-col {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: flex-start;
-  padding-right: 44px;
 }
 .photo-wrap { width: clamp(200px, 28vw, 420px); }
 .photo-wrap img {
@@ -462,14 +460,17 @@ footer {
     <p>
       <strong>Ivan Buka</strong> <span class="bio-sm">is a Senior</span> <strong>Motion Designer</strong> <span class="bio-sm">with <strong>10+ years of experience</strong> creating dynamic visual content for television, social media and advertising. Specializing in</span> <strong>motion graphics</strong><span class="bio-sm">,</span> <strong>animation</strong> <span class="bio-sm">and professional</span> <strong>color correction</strong><span class="bio-sm">. Passionate about integrating <strong>AI&nbsp;tools</strong> into motion design workflows.</span>
     </p>
-    <p class="bio-tools">
-      <strong>Tools of choice:</strong> Cinema 4D, Unreal Engine, After Effects, Illustrator, Photoshop, Figma and AI-powered generative tools.
-    </p>
   </div>
 
   <!-- Photo + contacts mid row -->
   <div class="hero-mid">
-    <div class="contact-col reveal">
+    <div class="photo-col reveal">
+      <div class="photo-wrap">
+        <img src="My_foto.png" alt="Ivan Buka" loading="eager">
+      </div>
+    </div>
+
+    <div class="contact-col reveal d1">
       <span class="tag" style="display:block; margin-bottom:18px; padding-top:14px; border-top:1px solid var(--line);">Contact</span>
       <div class="cg">
         <span class="ct">Email</span>
@@ -484,16 +485,14 @@ footer {
         <span class="cv"><a href="https://dribbble.com/Buka" target="_blank" rel="noopener">Buka</a></span>
       </div>
     </div>
-
-    <div class="photo-col reveal d1">
-      <div class="photo-wrap">
-        <img src="My_foto.png" alt="Ivan Buka" loading="eager">
-      </div>
-    </div>
   </div>
 
+  <p class="bio-tools reveal" style="padding: 24px 44px 0;">
+    <strong>Tools of choice:</strong> Cinema 4D, Unreal Engine, After Effects, Illustrator, Photoshop, Figma and AI-powered generative tools.
+  </p>
+
   <!-- GIANT name -->
-  <div class="giant-name">Buka</div>
+
 </section>
 
 <!-- ─── WORKS ─── -->
