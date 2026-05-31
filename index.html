@@ -43,29 +43,31 @@ body {
   transition: background .4s ease, color .4s ease;
 }
 
-body.dark .tools-box { background: rgba(240,237,230,.06); border-left-color: rgba(240,237,230,.15); }
+body.dark .contact-tagline { color: rgba(240,237,230,.9); }
+body.dark .award-title { color: rgba(240,237,230,.9); }
+body.dark .award-date { color: rgba(240,237,230,.9); }
+body.dark .tools-box { background: rgba(240,237,230,.06); border-left-color: rgba(240,237,230,.15); color: rgba(240,237,230,.9); }
 body.dark .vcard { background: rgba(240,237,230,.05); }
 body.dark .vcard-cta:hover { background: rgba(240,237,230,.08); }
 
 /* Theme toggle */
 .theme-toggle {
   position: fixed;
-  top: 14px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 16px;
+  right: 20px;
   z-index: 300;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--muted);
-  background: none;
-  border: none;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
   cursor: pointer;
-  padding: 6px 0;
-  transition: color .2s;
+  padding: 7px 14px;
+  transition: color .2s, background .4s, border-color .4s;
 }
-.theme-toggle:hover { color: var(--text); }
+.theme-toggle:hover { opacity: .7; }
 .theme-toggle:hover { color: var(--text); }
 
 nav {
@@ -475,10 +477,6 @@ footer {
 
 <button class="theme-toggle" id="themeToggle">Day</button>
 
-<button class="ham" id="ham" aria-label="Menu">
-  <span></span><span></span><span></span>
-</button>
-
 <div class="mob-menu" id="mobMenu">
   <a href="#works" class="mob-link">Works</a>
   <a href="#about" class="mob-link">Awards</a>
@@ -644,11 +642,6 @@ toggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   toggle.textContent = document.body.classList.contains('dark') ? 'Night' : 'Day';
 });
-
-/* Hamburger */
-const ham=document.getElementById('ham'), mob=document.getElementById('mobMenu');
-ham.addEventListener('click',()=>{ ham.classList.toggle('open'); mob.classList.toggle('open'); document.body.style.overflow=mob.classList.contains('open')?'hidden':''; });
-document.querySelectorAll('.mob-link').forEach(l=>l.addEventListener('click',()=>{ ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow=''; }));
 
 /* Reveal */
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08,rootMargin:'0px 0px -28px 0px'});
